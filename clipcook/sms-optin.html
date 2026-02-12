@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Opt-In Flow | ClipCook</title>
+    <meta name="description" content="ClipCook SMS Phone Linking Opt-In Flow Documentation">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .optin-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .optin-page h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .optin-page .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .optin-page h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .optin-page p, .optin-page li {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .optin-page ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .optin-page li {
+            margin-bottom: 0.5rem;
+        }
+
+        .optin-page strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1a1a1f;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .phone-mockup {
+            background: #000;
+            border-radius: 24px;
+            padding: 12px;
+            max-width: 240px;
+            margin: 1rem auto;
+            border: 2px solid #333;
+        }
+
+        .phone-screen {
+            background: #fff;
+            border-radius: 16px;
+            padding: 16px;
+            min-height: 200px;
+        }
+
+        .phone-screen .screen-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .phone-screen .input-mock {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .phone-screen .btn-mock {
+            background: linear-gradient(135deg, #e8a87c, #f4a261);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .phone-screen .consent-text {
+            font-size: 0.6rem;
+            color: #999;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .phone-screen .consent-text a {
+            color: #e8a87c;
+            text-decoration: underline;
+        }
+
+        .phone-screen .code-input {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .phone-screen .code-box {
+            width: 32px;
+            height: 40px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .phone-screen .success-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .phone-screen .success-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .phone-screen .success-sub {
+            font-size: 0.7rem;
+            color: #666;
+        }
+
+        .info-box {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        .info-box p {
+            margin-bottom: 0;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .sample-messages {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .sample-msg {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .sample-msg:last-child {
+            margin-bottom: 0;
+        }
+
+        .sample-msg .label {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="optin-page">
+        <a href="/" class="back-link" style="display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;margin-bottom:2rem;">← Back to GHP Labs</a>
+
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">ClipCook</p>
+        <h1>SMS Phone Linking — Opt-In Flow</h1>
+        <p class="subtitle">Documentation of how users consent to receive SMS messages from ClipCook. The app is currently in pre-launch beta.</p>
+
+        <div class="info-box">
+            <p><strong>About ClipCook:</strong> ClipCook is an iOS recipe app that lets users save recipes from any website, TikTok, Instagram, or YouTube. Users can optionally link their phone number in the app to text recipe URLs for processing via SMS. All SMS opt-in occurs exclusively within the app.</p>
+        </div>
+
+        <h2>Opt-In Flow Overview</h2>
+        <p>Users opt in to SMS messaging entirely within the ClipCook iOS app. The process requires explicit user action at every step — phone numbers are never collected passively or through third parties.</p>
+
+        <div class="step-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Open Settings</h3>
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="screen-title">⚙️ Settings</div>
+                        <div class="input-mock" style="background:#f0f0f0; border:none; font-weight:500; color:#333;">👤 Account</div>
+                        <div class="input-mock" style="background:#f0f0f0; border:none; font-weight:500; color:#e8a87c;">📱 Link Phone Number</div>
+                        <div class="input-mock" style="background:#f0f0f0; border:none; font-weight:500; color:#333;">🔔 Notifications</div>
+                        <div class="input-mock" style="background:#f0f0f0; border:none; font-weight:500; color:#333;">❓ Help & Support</div>
+                    </div>
+                </div>
+                <p>User navigates to Settings and taps "Link Phone Number"</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Enter Phone Number</h3>
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="screen-title">📱 Link Your Phone</div>
+                        <div style="font-size:0.7rem; color:#666; text-align:left; margin-bottom:10px;">Link your phone to text recipe URLs directly to ClipCook for processing.</div>
+                        <div class="input-mock">+1 (555) 123-4567</div>
+                        <div class="btn-mock">Send Verification Code</div>
+                        <div class="consent-text">By linking your phone, you agree to receive SMS messages from ClipCook including verification codes and recipe processing confirmations. Msg &amp; data rates may apply. Reply STOP to unsubscribe at any time. See our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.</div>
+                    </div>
+                </div>
+                <p>User enters their phone number and sees consent disclosures before proceeding</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Verify via SMS Code</h3>
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="screen-title">✉️ Enter Verification Code</div>
+                        <div style="font-size:0.7rem; color:#666; text-align:left; margin-bottom:12px;">We sent a 6-digit code to +1 (555) 123-4567</div>
+                        <div class="code-input">
+                            <div class="code-box">4</div>
+                            <div class="code-box">8</div>
+                            <div class="code-box">2</div>
+                            <div class="code-box">9</div>
+                            <div class="code-box">1</div>
+                            <div class="code-box">7</div>
+                        </div>
+                        <div class="btn-mock">Verify</div>
+                        <div style="font-size:0.65rem; color:#999; text-align:center; margin-top:8px;">Didn't receive a code? Resend</div>
+                    </div>
+                </div>
+                <p>User receives an SMS verification code and enters it to confirm ownership</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Phone Linked</h3>
+                <div class="phone-mockup">
+                    <div class="phone-screen" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                        <div class="success-icon">✅</div>
+                        <div class="success-text">Phone Linked!</div>
+                        <div class="success-sub">You can now text recipe URLs to ClipCook for instant processing.</div>
+                        <div style="margin-top:12px; font-size:0.65rem; color:#999; text-align:center;">Text any recipe URL to your ClipCook number. Reply STOP at any time to unsubscribe.</div>
+                    </div>
+                </div>
+                <p>Confirmation screen with opt-out reminder. User can unlink at any time in Settings.</p>
+            </div>
+        </div>
+
+        <h2>Consent Disclosures</h2>
+        <p>Before sending the verification code (Step 2), the following disclosures are presented to the user:</p>
+        <ul>
+            <li><strong>Brand identification:</strong> "ClipCook" is clearly identified as the sender</li>
+            <li><strong>Message types:</strong> Verification codes, recipe processing confirmations, and service notifications</li>
+            <li><strong>Frequency:</strong> Messages are sent only in response to user actions (texting a recipe URL or linking/unlinking phone). No marketing or recurring promotional messages.</li>
+            <li><strong>Rates:</strong> "Msg & data rates may apply"</li>
+            <li><strong>Opt-out:</strong> "Reply STOP to unsubscribe at any time"</li>
+            <li><strong>Privacy Policy:</strong> Link to <a href="/clipcook/privacy" style="color: var(--accent-start);">ghplabs.ai/clipcook/privacy</a></li>
+            <li><strong>Terms of Service:</strong> Link to <a href="/clipcook/terms" style="color: var(--accent-start);">ghplabs.ai/clipcook/terms</a></li>
+        </ul>
+
+        <h2>Opt-Out Methods</h2>
+        <p>Users can stop receiving SMS messages at any time through two methods:</p>
+        <ul>
+            <li><strong>Reply STOP:</strong> Text STOP (or CANCEL, END, QUIT, UNSUBSCRIBE) to the ClipCook number</li>
+            <li><strong>In-app:</strong> Go to Settings → Link Phone Number → Unlink Phone</li>
+        </ul>
+
+        <h2>Sample Messages</h2>
+        <p>These are the types of SMS messages ClipCook sends to users who have linked their phone:</p>
+        <div class="sample-messages">
+            <div class="sample-msg">
+                <span class="label">Verification</span>
+                "Your ClipCook verification code is 482917. It expires in 10 minutes."
+            </div>
+            <div class="sample-msg">
+                <span class="label">Recipe Processing</span>
+                "The chef is putting together your recipe! You'll get a notification when it's ready."
+            </div>
+            <div class="sample-msg">
+                <span class="label">Error</span>
+                "We couldn't find a recipe URL in your message. Send a link from TikTok, Instagram, YouTube, or any recipe blog."
+            </div>
+            <div class="sample-msg">
+                <span class="label">Unlinked Number</span>
+                "This phone number isn't linked to a ClipCook account. Link your phone in the ClipCook app settings to text recipes."
+            </div>
+            <div class="sample-msg">
+                <span class="label">Help Response</span>
+                "ClipCook: Text a recipe URL from TikTok, Instagram, YouTube or any recipe site and we'll extract the recipe for you. Reply STOP to unsubscribe. Support: support@ghplabs.ai"
+            </div>
+        </div>
+
+        <h2>Data Handling</h2>
+        <ul>
+            <li>Phone numbers are stored securely and used solely for SMS communication within ClipCook</li>
+            <li>Phone numbers are never shared with third parties for marketing purposes</li>
+            <li>Users can delete their phone number from ClipCook at any time via Settings</li>
+            <li>Full details in our <a href="/clipcook/privacy" style="color: var(--accent-start);">Privacy Policy</a></li>
+        </ul>
+
+        <div class="info-box" style="margin-top: 3rem;">
+            <p><strong>Note:</strong> ClipCook is currently in pre-launch beta. This page documents the opt-in flow as implemented in the app. For questions, contact <a href="mailto:support@ghplabs.ai" style="color: var(--accent-start);">support@ghplabs.ai</a>.</p>
+        </div>
+
+        <footer style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border-color);">
+            <p style="color: var(--text-muted); font-size: 0.85rem;">© 2026 GHP Labs LLC. All rights reserved. · <a href="/clipcook/privacy" style="color: var(--text-secondary); text-decoration:none;">Privacy</a> · <a href="/clipcook/terms" style="color: var(--text-secondary); text-decoration:none;">Terms</a></p>
+        </footer>
+    </main>
+</body>
+
+</html>
