@@ -60,7 +60,7 @@
 
         .step-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
@@ -99,100 +99,13 @@
             margin-bottom: 0;
         }
 
-        .phone-mockup {
-            background: #000;
-            border-radius: 24px;
-            padding: 12px;
-            max-width: 240px;
-            margin: 1rem auto;
-            border: 2px solid #333;
-        }
-
-        .phone-screen {
-            background: #fff;
+        .step-screenshot {
+            width: 100%;
+            max-width: 220px;
             border-radius: 16px;
-            padding: 16px;
-            min-height: 200px;
-        }
-
-        .phone-screen .screen-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 12px;
-            text-align: left;
-        }
-
-        .phone-screen .input-mock {
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px 12px;
-            font-size: 0.75rem;
-            color: #666;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        .phone-screen .btn-mock {
-            background: linear-gradient(135deg, #e8a87c, #f4a261);
-            border-radius: 8px;
-            padding: 10px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #fff;
-            text-align: center;
-            margin-bottom: 8px;
-        }
-
-        .phone-screen .consent-text {
-            font-size: 0.6rem;
-            color: #999;
-            text-align: left;
-            line-height: 1.4;
-        }
-
-        .phone-screen .consent-text a {
-            color: #e8a87c;
-            text-decoration: underline;
-        }
-
-        .phone-screen .code-input {
-            display: flex;
-            gap: 6px;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .phone-screen .code-box {
-            width: 32px;
-            height: 40px;
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .phone-screen .success-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-
-        .phone-screen .success-text {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 4px;
-        }
-
-        .phone-screen .success-sub {
-            font-size: 0.7rem;
-            color: #666;
+            border: 2px solid #333;
+            margin: 1rem auto;
+            display: block;
         }
 
         .info-box {
@@ -257,73 +170,35 @@
         </div>
 
         <h2>Opt-In Flow Overview</h2>
-        <p>Users opt in to SMS messaging entirely within the ClipCook iOS app. The process requires explicit user action at every step — phone numbers are never collected passively or through third parties.</p>
+        <p>Users opt in to SMS messaging entirely within the ClipCook iOS app. The process requires explicit user action at every step — phone numbers are never collected passively or through third parties. The screenshots below are from the actual app.</p>
 
         <div class="step-grid">
             <div class="step-card">
                 <div class="step-number">1</div>
-                <h3>Open Settings</h3>
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="screen-title">⚙️ Settings</div>
-                        <div class="input-mock" style="background:#f0f0f0; border:none; font-weight:500; color:#333;">👤 Account</div>
-                        <div class="input-mock" style="background:#f0f0f0; border:none; font-weight:500; color:#e8a87c;">📱 Link Phone Number</div>
-                        <div class="input-mock" style="background:#f0f0f0; border:none; font-weight:500; color:#333;">🔔 Notifications</div>
-                        <div class="input-mock" style="background:#f0f0f0; border:none; font-weight:500; color:#333;">❓ Help & Support</div>
-                    </div>
-                </div>
-                <p>User navigates to Settings and taps "Link Phone Number"</p>
+                <h3>Open Profile</h3>
+                <img src="screenshots/step-1-settings.png" alt="ClipCook Profile screen showing Text Recipes option" class="step-screenshot">
+                <p>User navigates to Profile and taps "Text Recipes" to begin linking their phone number.</p>
             </div>
 
             <div class="step-card">
                 <div class="step-number">2</div>
                 <h3>Enter Phone Number</h3>
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="screen-title">📱 Link Your Phone</div>
-                        <div style="font-size:0.7rem; color:#666; text-align:left; margin-bottom:10px;">Link your phone to text recipe URLs directly to ClipCook for processing.</div>
-                        <div class="input-mock">+1 (555) 123-4567</div>
-                        <div class="btn-mock">Send Verification Code</div>
-                        <div class="consent-text">By linking your phone, you agree to receive SMS messages from ClipCook including verification codes and recipe processing confirmations. Msg &amp; data rates may apply. Reply STOP to unsubscribe at any time. See our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.</div>
-                    </div>
-                </div>
-                <p>User enters their phone number and sees consent disclosures before proceeding</p>
+                <img src="screenshots/step-2-enter-phone.png" alt="ClipCook phone number entry screen with verification prompt" class="step-screenshot">
+                <p>User enters their phone number. The screen explains that a verification code will be sent via SMS.</p>
             </div>
 
             <div class="step-card">
                 <div class="step-number">3</div>
                 <h3>Verify via SMS Code</h3>
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="screen-title">✉️ Enter Verification Code</div>
-                        <div style="font-size:0.7rem; color:#666; text-align:left; margin-bottom:12px;">We sent a 6-digit code to +1 (555) 123-4567</div>
-                        <div class="code-input">
-                            <div class="code-box">4</div>
-                            <div class="code-box">8</div>
-                            <div class="code-box">2</div>
-                            <div class="code-box">9</div>
-                            <div class="code-box">1</div>
-                            <div class="code-box">7</div>
-                        </div>
-                        <div class="btn-mock">Verify</div>
-                        <div style="font-size:0.65rem; color:#999; text-align:center; margin-top:8px;">Didn't receive a code? Resend</div>
-                    </div>
-                </div>
-                <p>User receives an SMS verification code and enters it to confirm ownership</p>
+                <img src="screenshots/step-3-verify-code.png" alt="ClipCook SMS verification code entry screen" class="step-screenshot">
+                <p>User receives an SMS verification code and enters the 6-digit code to confirm phone ownership.</p>
             </div>
 
             <div class="step-card">
                 <div class="step-number">4</div>
                 <h3>Phone Linked</h3>
-                <div class="phone-mockup">
-                    <div class="phone-screen" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-                        <div class="success-icon">✅</div>
-                        <div class="success-text">Phone Linked!</div>
-                        <div class="success-sub">You can now text recipe URLs to ClipCook for instant processing.</div>
-                        <div style="margin-top:12px; font-size:0.65rem; color:#999; text-align:center;">Text any recipe URL to your ClipCook number. Reply STOP at any time to unsubscribe.</div>
-                    </div>
-                </div>
-                <p>Confirmation screen with opt-out reminder. User can unlink at any time in Settings.</p>
+                <img src="screenshots/step-4-phone-linked.png" alt="ClipCook Profile screen showing phone successfully linked with green checkmark" class="step-screenshot">
+                <p>Profile screen shows a green checkmark confirming the phone is linked. User can unlink at any time.</p>
             </div>
         </div>
 
@@ -343,7 +218,7 @@
         <p>Users can stop receiving SMS messages at any time through two methods:</p>
         <ul>
             <li><strong>Reply STOP:</strong> Text STOP (or CANCEL, END, QUIT, UNSUBSCRIBE) to the ClipCook number</li>
-            <li><strong>In-app:</strong> Go to Settings → Link Phone Number → Unlink Phone</li>
+            <li><strong>In-app:</strong> Go to Profile → Text Recipes → Unlink Phone</li>
         </ul>
 
         <h2>Sample Messages</h2>
@@ -375,12 +250,12 @@
         <ul>
             <li>Phone numbers are stored securely and used solely for SMS communication within ClipCook</li>
             <li>Phone numbers are never shared with third parties for marketing purposes</li>
-            <li>Users can delete their phone number from ClipCook at any time via Settings</li>
+            <li>Users can delete their phone number from ClipCook at any time via Profile settings</li>
             <li>Full details in our <a href="/clipcook/privacy" style="color: var(--accent-start);">Privacy Policy</a></li>
         </ul>
 
         <div class="info-box" style="margin-top: 3rem;">
-            <p><strong>Note:</strong> ClipCook is currently in pre-launch beta. This page documents the opt-in flow as implemented in the app. For questions, contact <a href="mailto:support@ghplabs.ai" style="color: var(--accent-start);">support@ghplabs.ai</a>.</p>
+            <p><strong>Note:</strong> ClipCook is currently in pre-launch beta. These screenshots are from the actual app build. For questions, contact <a href="mailto:support@ghplabs.ai" style="color: var(--accent-start);">support@ghplabs.ai</a>.</p>
         </div>
 
         <footer style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border-color);">
