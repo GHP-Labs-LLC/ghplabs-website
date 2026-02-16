@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-02-13
+**Last synced:** 2026-02-15
 **Author:** Jet
 
 ## Current State
@@ -31,4 +31,8 @@ Static website for GHP Labs (ghplabs.ai). Hosted via GitHub Pages or similar sta
 
 **Total:** 4 files added, 520 insertions. All Rosie-related pages for A2P 10DLC campaign compliance.
 
-No commits today (sync succeeded)
+## Changes — 2026-02-15 (1 commit)
+
+1. **02ca428** — `[Jet] chore: add STATUS.md with project state and recent Rosie compliance pages`
+
+**Total:** 1 commit. STATUS.md added.
