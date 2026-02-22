@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-02-20
+**Last synced:** 2026-02-21
 **Author:** Jet
 
 ## Current State
@@ -36,3 +36,15 @@ Static website for GHP Labs (ghplabs.ai). Hosted via GitHub Pages or similar sta
 1. **02ca428** — `[Jet] chore: add STATUS.md with project state and recent Rosie compliance pages`
 
 **Total:** 1 commit. STATUS.md added.
+
+## Changes — 2026-02-21 (4 commits)
+
+1. **b4fadba** — `[Jet] chore: sync STATUS.md last-synced date`
+2. **c8b0d7f** — `[Jet] feat: add privacy policy and terms of service pages`
+   - Added site-wide `/privacy/` and `/terms/` pages for Twilio A2P compliance
+3. **54d6223** — `[Jet] fix: add directory index for clean URLs (/privacy, /terms)`
+   - Added `index.html` inside each directory for clean URL access
+4. **2b270f6** — `[Jet] feat: add privacy & terms links to site footer`
+   - Updated footer with links to privacy and terms pages
+
+**Total:** 4 commits, 6 files changed, 440 insertions(+), 2 deletions(-). Privacy/terms pages added at site root level with clean URLs and footer links.
