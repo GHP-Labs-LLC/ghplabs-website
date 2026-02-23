@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-02-21
+**Last synced:** 2026-02-22
 **Author:** Jet
 
 ## Current State
@@ -48,3 +48,10 @@ Static website for GHP Labs (ghplabs.ai). Hosted via GitHub Pages or similar sta
    - Updated footer with links to privacy and terms pages
 
 **Total:** 4 commits, 6 files changed, 440 insertions(+), 2 deletions(-). Privacy/terms pages added at site root level with clean URLs and footer links.
+
+## Changes — 2026-02-22 (2 commits)
+
+1. **d9fd7d3** — `fix: make privacy/terms links white for better visibility`
+2. **35932cb** — `[Jet] chore: sync uncommitted changes — update STATUS.md with Feb 21 commit log`
+
+**Total:** 2 commits. Footer link styling fix and STATUS.md sync.
