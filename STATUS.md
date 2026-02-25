@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-02-22
+**Last synced:** 2026-02-24
 **Author:** Jet
 
 ## Current State
@@ -55,3 +55,11 @@ Static website for GHP Labs (ghplabs.ai). Hosted via GitHub Pages or similar sta
 2. **35932cb** — `[Jet] chore: sync uncommitted changes — update STATUS.md with Feb 21 commit log`
 
 **Total:** 2 commits. Footer link styling fix and STATUS.md sync.
+
+## Changes — 2026-02-24 (2 commits)
+
+1. **00c97ee** — Mission statement content added to landing page
+2. **551ce87** — Style refinement (breathing room, lighter callout weight)
+
+**Mission statement:** "Every few months, AI gets dramatically better. But the way most people use it barely changes. That gap is only growing. The problem isn't the technology. It's the delivery."
+Replaces old hero subtitle. Freddy's creative direction: broader mission, growing gap framing.
