@@ -225,6 +225,28 @@ main {
     margin: 0 auto;
 }
 
+/* Mission section */
+.mission {
+    padding: 2rem 0 2.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.mission .mission-highlight {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 1.25rem 0;
+}
+
 /* Apps section */
 .apps {
     padding: 2rem 0;
