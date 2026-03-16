@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GHP Labs — Builder's Log v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #F5F0E8;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #6B6358;
+    --text-muted: #A89F91;
+    --accent: #C4956A;
+    --accent-hover: #B5845B;
+    --border: #E5DDD0;
+    --border-light: #EDE7DC;
+    --mono: 'IBM Plex Mono', 'Courier New', monospace;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  /* ---- HEADER ---- */
+  .site-header {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 80px;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    margin-bottom: 48px;
+  }
+
+  .hero h1 {
+    font-family: var(--mono);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-primary);
+  }
+
+  .hero h1 .punch {
+    color: var(--accent);
+  }
+
+  .accent-line {
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
+    margin: 32px 0;
+  }
+
+  /* ---- MISSION ---- */
+  .mission {
+    margin-bottom: 80px;
+    max-width: 580px;
+  }
+
+  .mission p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .mission .highlight {
+    font-family: var(--mono);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin: 28px 0;
+  }
+
+  /* ---- LAB TIERS ---- */
+  .tier {
+    margin-bottom: 48px;
+  }
+
+  .tier-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+
+  .tier-header h2 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .tier-header .tier-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .tier-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 24px;
+  }
+
+  /* ---- EXPERIMENT CARDS ---- */
+  .experiment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .experiment-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .experiment-name {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .experiment-tagline {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .experiment-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .experiment-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .experiment-link {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .experiment-link:hover { color: var(--accent-hover); }
+  .experiment-link::after { content: ' →'; }
+
+  .legal-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .legal-links a {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .legal-links a:hover { color: var(--text-secondary); }
+
+  .legal-links .dot {
+    color: var(--border);
+    font-size: 6px;
+  }
+
+  /* Building tier — slightly less prominent */
+  .experiment-building {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .experiment-building + .experiment-building {
+    border-top: 1px solid var(--border-light);
+  }
+
+  .experiment-building .experiment-text {
+    flex: 1;
+  }
+
+  .experiment-building .experiment-name {
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .experiment-building .experiment-desc {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .experiment-building .experiment-link {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Early stage — most minimal */
+  .experiment-early {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .experiment-early + .experiment-early {
+    border-top: 1px solid var(--border-light);
+  }
+
+  .experiment-early .experiment-name {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+
+  .experiment-early .experiment-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    flex: 1;
+  }
+
+  .experiment-early .early-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    font-style: italic;
+  }
+
+  /* ---- FOOTER ---- */
+  .site-footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-footer .copyright {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .site-footer .footer-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .site-footer .footer-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .site-footer .footer-links a:hover { color: var(--text-secondary); }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 640px) {
+    .page { padding: 32px 20px; }
+    .hero h1 { font-size: 24px; }
+    .experiment-grid { grid-template-columns: 1fr; }
+    .experiment-building { flex-direction: column; gap: 12px; }
+    .experiment-early { flex-direction: column; gap: 4px; }
+    .site-footer { flex-direction: column; gap: 12px; text-align: center; }
+    .site-footer .footer-links { justify-content: center; }
+    .tier-header { flex-direction: column; gap: 4px; }
+  }
+
+  /* ---- MOCKUP LABEL ---- */
+  .mockup-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--text-primary);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-align: center;
+    padding: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 100;
+  }
+
+  .page { margin-top: 36px; }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">v3 — 3-Tier Lab Taxonomy</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="site-header">GHP Labs</div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Most people use AI<br>as a search engine.<br><span class="punch">We think it can do more.</span></h1>
+  </div>
+
+  <div class="accent-line"></div>
+
+  <!-- MISSION -->
+  <div class="mission">
+    <p>AI keeps getting better, but the way people use it barely changes. It answers questions. It writes emails. It summarizes things. Useful, sure — but that's just the surface.</p>
+    <p>The real potential is in AI that does things with you — in your kitchen, in your closet, across your family's chaotic schedule. Tools that fit into your life, not tools that replace your browser.</p>
+    <div class="highlight">We build products that close the gap.</div>
+    <p>GHP Labs is a product studio. We run experiments, ship what works, and keep building. Not everything here will become a product. That's how a lab works.</p>
+  </div>
+
+  <!-- TIER 1: READY -->
+  <div class="tier">
+    <div class="tier-header">
+      <h2>Ready to try</h2>
+      <span class="tier-count">2 products</span>
+    </div>
+    <div class="tier-divider"></div>
+
+    <div class="experiment-grid">
+      <div class="experiment-card">
+        <div class="experiment-name">ClipCook</div>
+        <div class="experiment-tagline">Your AI sous chef</div>
+        <div class="experiment-desc">Save recipes from any video, get personalized cooking guidance, and remix dishes to your taste.</div>
+        <div class="experiment-actions">
+          <a href="#" class="experiment-link">Join the beta</a>
+          <div class="legal-links">
+            <a href="#">Privacy</a>
+            <span class="dot">●</span>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="experiment-card">
+        <div class="experiment-name">Sorted</div>
+        <div class="experiment-tagline">Style confidence in seconds</div>
+        <div class="experiment-desc">Quick outfit check before you walk out the door. Feedback that's actually useful.</div>
+        <div class="experiment-actions">
+          <a href="#" class="experiment-link">Join the beta</a>
+          <div class="legal-links">
+            <a href="#">Privacy</a>
+            <span class="dot">●</span>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 2: BUILDING -->
+  <div class="tier">
+    <div class="tier-header">
+      <h2>Building</h2>
+      <span class="tier-count">2 experiments</span>
+    </div>
+    <div class="tier-divider"></div>
+
+    <div class="experiment-building">
+      <div class="experiment-text">
+        <div class="experiment-name">Rosie</div>
+        <div class="experiment-tagline">Your family's shared AI assistant</div>
+        <div class="experiment-desc">Keeps track of school events, sports schedules, and everything that falls through the cracks — across WhatsApp, email, and SMS.</div>
+        <div class="experiment-actions">
+          <a href="#" class="experiment-link">Try Rosie</a>
+          <div class="legal-links">
+            <a href="#">Privacy</a>
+            <span class="dot">●</span>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="experiment-building">
+      <div class="experiment-text">
+        <div class="experiment-name">BuyCouncil</div>
+        <div class="experiment-tagline">AI-powered purchase decisions</div>
+        <div class="experiment-desc">Describe what you want to buy. A council of specialized AI agents debates the options and delivers an opinionated verdict.</div>
+        <div class="experiment-actions">
+          <a href="#" class="experiment-link">Try it</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 3: EARLY STAGE (placeholder for future) -->
+  <div class="tier">
+    <div class="tier-header">
+      <h2>Early stage</h2>
+      <span class="tier-count">Coming soon</span>
+    </div>
+    <div class="tier-divider"></div>
+
+    <div class="experiment-early">
+      <div class="experiment-name" style="color: var(--text-muted);">More experiments brewing</div>
+      <div class="experiment-desc">We're always working on the next thing. Check back.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="site-footer">
+    <div class="copyright">© 2026 GHP Labs LLC</div>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">support@ghplabs.ai</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
