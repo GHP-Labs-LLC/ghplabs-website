@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-03-15
+**Last synced:** 2026-03-16
 **Author:** Jet
 
 ## Current State
@@ -77,6 +77,13 @@ Replaces old hero subtitle. Freddy's creative direction: broader mission, growin
    - Added `sorted/support.html` (71 lines) — support page for Sorted app, required for App Store Connect submission
 
 **Total:** 1 commit, 1 file added. Support page for Sorted App Store listing.
+
+## Changes — 2026-03-16 (1 commit)
+
+1. **71d7e89** — `[Jet] chore: sync uncommitted changes — STATUS.md,NEXT.md`
+   - STATUS.md and NEXT.md synced with follow-up items from Mar 15 redesign
+
+**Total:** 1 commit. Documentation sync only.
 
 ## Changes — 2026-03-15 (4 commits)
 
