@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-03-14
+**Last synced:** 2026-03-15
 **Author:** Jet
 
 ## Current State
@@ -77,3 +77,17 @@ Replaces old hero subtitle. Freddy's creative direction: broader mission, growin
    - Added `sorted/support.html` (71 lines) — support page for Sorted app, required for App Store Connect submission
 
 **Total:** 1 commit, 1 file added. Support page for Sorted App Store listing.
+
+## Changes — 2026-03-15 (4 commits)
+
+1. **351ad96** — `feat: redesign website to Builder's Log aesthetic`
+   - Major visual overhaul of `index.html` and `styles.css` — warm palette, new typography, Builder's Log design language
+   - Brainstorm artifacts saved in `.superpowers/brainstorm/` (7 mockup iterations, type comparison, design approaches)
+2. **c75d2db** — `fix: update site-level legal pages to match warm palette`
+   - Updated `privacy.html`, `privacy/index.html`, `terms.html`, `terms/index.html` to use new warm color scheme
+3. **8a5182b** — `fix: trim clunky sentence from mission copy`
+   - Minor copy edit on landing page
+4. **2823442** — `[Jet] chore: sync uncommitted changes — STATUS.md,.superpowers/`
+   - STATUS.md date bump, brainstorm artifacts committed
+
+**Total:** 4 commits, 19 files changed, 3794 insertions(+), 751 deletions(-). Major redesign to Builder's Log aesthetic with warm palette applied across landing page and legal pages.
