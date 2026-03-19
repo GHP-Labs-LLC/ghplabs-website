@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-03-16
+**Last synced:** 2026-03-17
 **Author:** Jet
 
 ## Current State
@@ -77,6 +77,13 @@ Replaces old hero subtitle. Freddy's creative direction: broader mission, growin
    - Added `sorted/support.html` (71 lines) — support page for Sorted app, required for App Store Connect submission
 
 **Total:** 1 commit, 1 file added. Support page for Sorted App Store listing.
+
+## Changes — 2026-03-17 (1 commit)
+
+1. **d44a31d** — `fix: sharpen mission copy — make AI useful for the rest of us`
+   - Updated mission statement copy on landing page (`index.html`, 2 insertions, 2 deletions)
+
+**Total:** 1 commit, 1 file changed. Copy refinement.
 
 ## Changes — 2026-03-16 (1 commit)
 
