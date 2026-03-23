@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-03-21
+**Last synced:** 2026-03-22
 **Author:** Jet
 
 ## Current State
@@ -14,6 +14,13 @@ Static website for GHP Labs (ghplabs.ai). Hosted via GitHub Pages or similar sta
   - `privacy.html` — Privacy Policy (effective 2026-02-13)
   - `terms.html` — Terms of Service (effective 2026-02-13)
   - `sms.html` — SMS disclosure page for A2P/CTIA compliance
+
+## Changes — 2026-03-22 (1 commit)
+
+1. **98624d7** — `[Jet] chore: sync uncommitted changes — STATUS.md`
+   - STATUS.md date bump
+
+**Total:** 1 commit. Documentation sync only.
 
 ## Changes — 2026-02-13 (3 commits)
 
