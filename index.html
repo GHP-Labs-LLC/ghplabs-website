@@ -37,19 +37,23 @@
   <!-- TIER: IN THE WILD -->
   <div class="tier">
     <div class="tier-label">In the wild</div>
-    <div class="experiment-grid">
-      <div class="experiment-card">
-        <div class="experiment-meta">
-          <span class="experiment-id">#002</span>
+    <div class="shipped-card">
+      <div class="experiment-meta">
+        <span class="experiment-id">#002</span>
+      </div>
+      <div class="shipped-content">
+        <div>
+          <div class="experiment-name">Sorted</div>
+          <div class="experiment-tagline">Style confidence in seconds</div>
+          <div class="experiment-desc">Quick outfit check before you walk out the door. Feedback that's actually useful.</div>
         </div>
-        <div class="experiment-name">Sorted</div>
-        <div class="experiment-tagline">Style confidence in seconds</div>
-        <div class="experiment-desc">Quick outfit check before you walk out the door. Feedback that's actually useful.</div>
-        <a href="https://apps.apple.com/us/app/sorted-ai-style-check/id6758172664" class="cta-btn">Get it on the App Store</a>
-        <div class="legal-links">
-          <a href="/sorted/privacy.html">Privacy</a>
-          <span class="dot">&#9679;</span>
-          <a href="/sorted/terms.html">Terms</a>
+        <div class="shipped-actions">
+          <a href="https://apps.apple.com/us/app/sorted-ai-style-check/id6758172664" class="cta-btn">Get it on the App Store</a>
+          <div class="legal-links">
+            <a href="/sorted/privacy.html">Privacy</a>
+            <span class="dot">&#9679;</span>
+            <a href="/sorted/terms.html">Terms</a>
+          </div>
         </div>
       </div>
     </div>
@@ -88,34 +92,30 @@
           <a href="/coachfred/terms.html">Terms</a>
         </div>
       </div>
-    </div>
 
-    <div class="experiment-inline">
-      <div class="meta-col">
-        <span class="experiment-id">#003</span>
-      </div>
-      <div class="experiment-text">
+      <div class="experiment-card">
+        <div class="experiment-meta">
+          <span class="experiment-id">#003</span>
+        </div>
         <div class="experiment-name">Rosie</div>
         <div class="experiment-tagline">Your family's shared AI assistant</div>
         <div class="experiment-desc">Keeps track of school events, sports schedules, and everything that falls through the cracks. Works across WhatsApp, email, and SMS.</div>
-        <a href="https://rosiefamilyassistant.com" class="cta-btn-outline">Try Rosie</a>
+        <a href="https://rosiefamilyassistant.com" class="cta-btn">Try Rosie</a>
         <div class="legal-links">
           <a href="https://rosiefamilyassistant.com/privacy">Privacy</a>
           <span class="dot">&#9679;</span>
           <a href="https://rosiefamilyassistant.com/terms">Terms</a>
         </div>
       </div>
-    </div>
 
-    <div class="experiment-inline">
-      <div class="meta-col">
-        <span class="experiment-id">#004</span>
-      </div>
-      <div class="experiment-text">
+      <div class="experiment-card">
+        <div class="experiment-meta">
+          <span class="experiment-id">#004</span>
+        </div>
         <div class="experiment-name">BuyCouncil</div>
         <div class="experiment-tagline">AI-powered purchase decisions</div>
         <div class="experiment-desc">Describe what you want to buy. A council of AI agents debates your options and delivers a verdict.</div>
-        <a href="https://buycouncil.ai" class="cta-btn-outline">Try it</a>
+        <a href="https://buycouncil.ai" class="cta-btn">Try it</a>
       </div>
     </div>
   </div>
@@ -142,6 +142,63 @@
       </li>
     </ul>
   </div>
+
+  <!-- IDEA SUBMISSION -->
+  <div class="idea-section">
+    <div class="idea-header">Got an app idea?</div>
+    <p class="idea-subtext">We're always looking for the next experiment. Tell us what you'd build.</p>
+    <form id="idea-form" class="idea-form">
+      <input type="email" name="email" placeholder="Your email" required class="idea-input">
+      <textarea name="idea" placeholder="Describe your idea..." required minlength="10" maxlength="2000" class="idea-textarea"></textarea>
+      <button type="submit" class="cta-btn idea-submit">Submit idea</button>
+    </form>
+    <div id="idea-status" class="idea-status"></div>
+  </div>
+
+  <script>
+  (function() {
+    var API = 'https://BUG_REPORT_SERVICE_URL/api/v1/ideas';
+    var form = document.getElementById('idea-form');
+    var status = document.getElementById('idea-status');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('.idea-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      status.textContent = '';
+      status.className = 'idea-status';
+
+      fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: form.email.value,
+          idea: form.idea.value
+        })
+      })
+      .then(function(res) { return res.json().then(function(d) { return { ok: res.ok, data: d }; }); })
+      .then(function(r) {
+        if (r.ok) {
+          status.textContent = 'Thanks! We got your idea.';
+          status.className = 'idea-status idea-success';
+          form.reset();
+        } else {
+          status.textContent = r.data.error || 'Something went wrong. Try again.';
+          status.className = 'idea-status idea-error';
+        }
+      })
+      .catch(function() {
+        status.textContent = 'Could not connect. Try again later.';
+        status.className = 'idea-status idea-error';
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.textContent = 'Submit idea';
+      });
+    });
+  })();
+  </script>
 
   <footer class="site-footer">
     <div class="copyright">&copy; 2026 GHP Labs LLC</div>
