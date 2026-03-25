@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-03-22
+**Last synced:** 2026-03-23
 **Author:** Jet
 
 ## Current State
@@ -14,6 +14,18 @@ Static website for GHP Labs (ghplabs.ai). Hosted via GitHub Pages or similar sta
   - `privacy.html` — Privacy Policy (effective 2026-02-13)
   - `terms.html` — Terms of Service (effective 2026-02-13)
   - `sms.html` — SMS disclosure page for A2P/CTIA compliance
+- `/coachfred/` — Coach Fred product pages:
+  - `privacy.html` — Privacy Policy
+  - `terms.html` — Terms of Service
+
+## Changes — 2026-03-23 (1 commit)
+
+1. **1e8ce32** — `feat: sorted → app store, add coach fred, simplify tiers`
+   - Updated `index.html` — Sorted now links to App Store, added Coach Fred product listing, simplified pricing tiers
+   - Added `coachfred/privacy.html` (147 lines) — Privacy Policy for Coach Fred
+   - Added `coachfred/terms.html` (162 lines) — Terms of Service for Coach Fred
+
+**Total:** 1 commit, 3 files changed, 340 insertions(+), 15 deletions(-). Coach Fred legal pages added + landing page product updates.
 
 ## Changes — 2026-03-22 (1 commit)
 
