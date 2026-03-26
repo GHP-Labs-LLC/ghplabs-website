@@ -1,6 +1,6 @@
 # ghplabs-website — Status
 
-**Last synced:** 2026-03-23
+**Last synced:** 2026-03-24
 **Author:** Jet
 
 ## Current State
@@ -17,6 +17,18 @@ Static website for GHP Labs (ghplabs.ai). Hosted via GitHub Pages or similar sta
 - `/coachfred/` — Coach Fred product pages:
   - `privacy.html` — Privacy Policy
   - `terms.html` — Terms of Service
+
+## Changes — 2026-03-24 (3 commits)
+
+1. **f97d070** — `feat: unify tier layouts — shipped card, consistent testing grid`
+   - Major update to `index.html` — unified tier card layouts, added shipped product cards, consistent testing grid styling
+   - Updated `styles.css` — new styles for unified tier layouts
+2. **e94a7a5** — `feat: wire idea form to BugReportService API endpoint`
+   - Updated `index.html` — idea submission form now posts to BugReportService API with Telegram notification
+3. **114d056** — `[Jet] chore: sync uncommitted changes — STATUS.md,docs/`
+   - STATUS.md update, planning docs added
+
+**Total:** 3 commits, 4 files changed. Tier layout unification + idea form wired to backend.
 
 ## Changes — 2026-03-23 (1 commit)
 

@@ -1,6 +1,6 @@
 # ghplabs-website — Next Steps
 
-**Updated:** 2026-03-15
+**Updated:** 2026-03-24
 
 ## Follow-ups from Mar 15 redesign
 
